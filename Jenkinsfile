@@ -12,7 +12,7 @@ pipeline{
         withAWS(credentials: 'awsjenkins', region: 'us-west-2') {
                 sh("terraform plan");
                 echo "terraform action from parameter is --> ${action}"
-                sh ("terraform ${action} --auto-approve");
+                
                 }
             }     
        }
