@@ -14,8 +14,14 @@ pipeline{
                 echo "terraform action from parameter is --> ${action}"
                 sh ("terraform ${action} --auto-approve");
                 }
-            }
+            }     
+       }
+     stage('Terraform statelist'){
+      steps{
+        sh("terraform state list");
+       }
     }
-  }
+
+}
 }
 
