@@ -13,7 +13,6 @@ pipeline{
                 sh("terraform plan");
                 echo "terraform action from parameter is --> ${action}"
                 sh("terraform ${action} --auto-approve");
-                sh ("terraform output kubeconfig >  ~/.kube/config");
                 }
             }     
        }
