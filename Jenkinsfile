@@ -22,6 +22,11 @@ pipeline{
         sh("terraform state list");
        }
     }
+    stage("copying kubeconfig file to homedirectory"){
+      steps{
+        sh("terraform output kubeconfig > ~/.kube/config");
+       }
+    }
 
 }
 }
