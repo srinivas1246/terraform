@@ -13,7 +13,7 @@ pipeline{
                 sh("terraform plan");
                 echo "terraform action from parameter is --> ${action}"
                 sh("terraform ${action} --auto-approve");
-
+                sh ("terraform output kubeconfig >  ~/.kube/config");
                 }
             }     
        }
@@ -22,11 +22,7 @@ pipeline{
         sh("terraform state list");
        }
     }
-    stage("copying kubeconfig file to homedirectory"){
-      steps{
-        sh("terraform output kubeconfig > ~/.kube/config");
-       }
-    }
+   
 
 }
 }
